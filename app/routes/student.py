@@ -1,21 +1,26 @@
-from flask import Blueprint,jsonify, request
+from flask import Blueprint,jsonify,request
 
-# create student blueprint
-student_bp = Blueprint("student", __name__)
+#create student bluprint
+student_bp=Blueprint("student",__name__)
 
-@student_bp.route("/", methods=["GET"])
-def home():
-    return "Welcome to the Student Management System"
 
-# routes and controller logic
-@student_bp.route("/student/add", methods=["POST"])
-def add_student():
-    print("add use was hit")
-    return "Adding a user"
+@student_bp.route("/",methods=["GET","POST"])
+def single_student():
+    print("Single student")
+    return "Single student"
 
-@student_bp.route("/students", methods=["GET"])
-def list_students():
+#routes and controller logic
+@student_bp.route("/add",methods=["POST"])
+def add_user():
+    print("Add user was hit")
+    return "Adding a student",200
+
+@student_bp.route("/edit",methods=["PUT"])
+def edit_student():
+    print("Add user was hit")
+    return "Edit a student"
+
+@student_bp.route("/list",methods=["GET"])
+def list_users():
     print("List Students")
-    users = [{"id": 1, "name": "John Doe"}, {"id": 2, "name": "Jane Doe"}]
-    return jsonify(users) 
     return "List All students"
