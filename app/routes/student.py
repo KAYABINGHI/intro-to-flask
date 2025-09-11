@@ -1,6 +1,6 @@
 from flask import Blueprint,jsonify,request
 
-#create student bluprint
+#create student blueprint
 student_bp=Blueprint("student",__name__)
 
 
