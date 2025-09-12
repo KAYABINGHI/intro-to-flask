@@ -5,6 +5,9 @@ def utc_now():
     return datetime.now(timezone.utc)
 
 class Student(db.Model):
+    def __init__(self, name,email):
+        self.name = name
+        self.email = email
     __tablename__="student"
 
     id=db.Column(db.Integer,primary_key=True)
